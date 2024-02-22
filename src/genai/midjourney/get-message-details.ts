@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const getMessageDetails = async (messageId: string) => {
+    console.log(`messageId: ${messageId}`);
+    console.log(`process.env.MIDJOURNEY_API_KEY: ${process.env.MIDJOURNEY_API_KEY}`);
     const config = {
         method: "get",
         url: `https://api.mymidjourney.ai/api/v1/midjourney/message/${messageId}`,
@@ -29,7 +31,7 @@ export const getMessageDetails = async (messageId: string) => {
 (async () => {
     try {
         //9e01f78c-6595-446d-8053-77a86f4b2c0f
-        let messageId = '1c5a1f98-95a2-48c9-b71f-e1c6576bd228';
+        let messageId = 'f911ddff-b83f-426e-9e48-83179a26c9f0';
         let responseData = await getMessageDetails(messageId);
         console.log(`response data for messageId ${messageId} is: ${JSON.stringify(responseData)}`);
 
