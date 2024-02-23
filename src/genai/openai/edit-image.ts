@@ -6,15 +6,18 @@ dotenv.config();
 
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
-//npx ts-node src/openai/edit-image.ts
+//npx ts-node src/genai/openai/edit-image.ts
 async function main() {
-    const imagePath = path.join(__dirname, '../../base/new-cat.png');
+    const imagePath = path.join(__dirname, '../../../base/output.png');
+    const maskPath = path.join(__dirname, '../../../base/mask.png');
+
     const image = await openai.images.edit({
         image: fs.createReadStream(imagePath),
-        prompt: "A Pixelated Cat wearing a beret",
+        mask: fs.createReadStream(maskPath),
+        prompt: "cat in the image is now wearing eye glasses",
     });
     
-      console.log(image.data); 
+    console.log(image.data); 
 }
 
 main();

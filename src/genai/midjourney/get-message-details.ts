@@ -31,7 +31,7 @@ export const getMessageDetails = async (messageId: string) => {
 (async () => {
     try {
         //9e01f78c-6595-446d-8053-77a86f4b2c0f
-        let messageId = 'f911ddff-b83f-426e-9e48-83179a26c9f0';
+        let messageId = 'a47c8d7e-e1b4-40e3-acf4-2b6e8f7829b2';
         let responseData = await getMessageDetails(messageId);
         console.log(`response data for messageId ${messageId} is: ${JSON.stringify(responseData)}`);
 
